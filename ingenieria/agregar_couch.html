@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,900' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<title>Couch Inn</title>
+</head>
+<body>
+<header>
+	<hgroup>
+	<div class="col-md-6 center-block quitar-float text-center">
+		<h1 class="Indie-flower grande verde">Couch Inn</h1>
+	</hgroup>
+	
+		<nav class="col-md-6 center-block quitar-float text-center">
+			<ul>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="contacto.html">Perfil</a></li><li>
+				<li><a href="sesion.html">Iniciar Sesión</a></li>
+				<li><a href="registro.html">Registrarse</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+	<div id="textoPr">
+		<form name="datos" action="alta_couch.php" method="POST" onSubmit="confirm('Confirmar Couch')" enctype="multipart/form-data">
+		
+		<label for= 'nombre'>Título:</label>
+		<input type='text' id='titulo'  required class="textarea">
+		<label for= 'apellido'>Ubicación:</label>
+		<input type='text' id='ubicacion'  required class="textarea">
+		<label for= 'contraseña'>Descripción:</label>
+		<input type= 'textarea' id="descripcion"  required class="textarea">
+		<label for= 'telefono'>Capacidad:</label>
+		<input type='number' id='capacidad' min="1" max="50" required class="textarea"><br>
+		Agregar Fotos:<input type="file"  id="btnSubmit">
+		<input type='submit' value='Enviar Datos' id='btnSubmit'>
+		<input type='reset' value="Limpiar" id="btnLimpiar">
+		</form>
+	</div>
+</body>
+</html>
