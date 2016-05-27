@@ -7,14 +7,10 @@ if ($enlace->connect_errno) {
     exit();
 }
 
-
-
-function consulta_nombre(){
 $consulta = "SELECT NOMBRE FROM usuario";
 $resultado = $enlace -> query($consulta);
 $fila = mysqli_fetch_array($resultado);
 echo $fila['NOMBRE']."<br>";
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,15 +35,17 @@ echo $fila['NOMBRE']."<br>";
 				<li><a href="contacto.html">Contacto</a></li><li>
 				<li><a href="sesion.html">Iniciar Sesión</a></li>
 				<li><a href="registro.html">Registrarse</a></li>
+				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>
 		<div>
-			<form name="premium" action="premium.php">
-			<input type="submit" value="Quiero ser Premium" id="BtnSubmit">
-			</form>
+			
 			<form action="agregar_couch.html">
-			<input type="submit" value="Agregar Couch" id="BtnSubmit">
+			<input type="submit" value="Agregar Couch" id="BtnSubmit"><br>
+			<form name="premium" action="premium.php">
+			<input type="submit" value="Quiero ser Premium" id="BtnSubmit"><br>
 		</div>
+		<a href="cerrar_sesion.php">Cerrar Sesion</a>
 	</div>
 </header>
 </body>

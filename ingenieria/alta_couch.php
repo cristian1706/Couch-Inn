@@ -6,18 +6,22 @@ if ($enlace->connect_errno) {
     printf("Falló la conexión: %s\n", $mysqli->connect_error);
     exit();
 }
-$capacidad = isset($_POST['capacidad']) ? $_POST['capacidad'] : NULL;
-$ubicacion = isset($_POST['ubicacion']) ? $_POST['ubicacion'] : NULL;
-$descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : NULL;
-$titulo = isset($_POST['titulo']) ? $_POST['titulo'] : NULL;
+var_dump($_POST);
+$cap = $_POST['capacidad'];
+var_dump($cap);
+$ubicacion = $_POST['ubicacion'];
+$descripcion = $_POST['descripcion'];
+$titulo = $_POST['titulo'];
 
-$sql = mysqli_query($enlace, "INSERT into couch (CAPACIDAD, UBICACION, DESCRIPCION, TITULO) VALUES ('$capacidad', '$ubicacion', '$descripcion', '$titulo')");
+$sql = "INSERT INTO couch (CAPACIDAD, UBICACION, DESCRIPCION, TITULO) VALUES ('$cap','$ubicacion','$descripcion','$titulo')";
+$resultado = $enlace -> query($sql);
 
-if( !$_query=mysqli_query($enlace,$sql)){
-  echo " no se pudo agregar el usuario";
+if( !$_query=mysqli_query($enlace,$resultado)){
+  die ("Error: ".mysqli_error($enlace);
  }
 
- else{ echo "usuario agregado correctamente";}
+ else{ echo "Couch agregado correctamente";}
  ?>
  
-<a href="index.php">Inicio</a>;
+<a href="index.php">Inicio</a>
+<a href="agregar_couch.html">Intentar de nuevo</a>

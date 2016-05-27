@@ -18,29 +18,20 @@
 		<nav class="col-md-6 center-block quitar-float text-center">
 			<ul>
 				<li><a href="index.php">Inicio</a></li>
-				<li><a href="">Perfil</a></li><li>
+				<li><a href="contacto.html">Contacto</a></li><li>
 				<li><a href="sesion.html">Iniciar Sesión</a></li>
 				<li><a href="registro.html">Registrarse</a></li>
 				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>
 	</div>
-</header>
 	<div id="textoPr">
-		<form action="alta_couch.php" method="POST" onSubmit="confirm('Confirmar Couch')" enctype="multipart/form-data">
-		
-		<label for= 'titulo'>Título:</label>
-		<input type='text' id='titulo' name="titulo" required class="textarea">
-		<label for= 'ubicacion'>Ubicación:</label>
-		<input type='text' id='ubicacion' name="ubicacion" required class="textarea">
-		<label for= 'descripcion'>Descripción:</label>
-		<input type= 'textarea' id='descripcion' name="descripcion" required class="textarea">
-		<label for= 'capacidad'>Capacidad:</label>
-		<input type='number' id='capacidad' min="1" max="50" name="capacidad" required class="textarea"><br>
-		Agregar Fotos:<input type="file"  id="btnSubmit">
-		<input type='submit' value='Enviar Datos' id='btnSubmit'>
-		<input type='reset' value="Limpiar" id="btnLimpiar">
+		<form action="recuperaClave.php" method="POST">
+			Ingresa tu correo:<input type='email' id="correo" name="correo" required class="textarea">
+			<input type='submit' value='Aceptar' id='btnSubmit'>
 		</form>
+
 	</div>
+</header>
 </body>
 </html>

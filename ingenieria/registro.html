@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,27 +21,28 @@
 				<li><a href="contacto.html">Perfil</a></li><li>
 				<li><a href="sesion.html">Iniciar Sesión</a></li>
 				<li><a href="registro.html">Registrarse</a></li>
+				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>
 	</div>
 </header>
 	<div id="textoPr">
-		<form name="datos" action="alta_usuario.php" method="post" onSubmit="confirm('Confirme sus datos')" onReset="confirm('Se borrarán todos los datos insertados')">
+		<form action="alta_usuario.php" method="POST" onSubmit="confirm('Confirme sus datos')">
 		
 		<label for= 'nombre'>Nombre:</label>
-		<input type='text' id='nombre' placeholder='Escribe tu nombre' required class="textarea">
-		<label for= 'apellido'>Apellido:</label>
-		<input type='text' id='apellido' placeholder='Escribe tu apellido' required class="textarea">
-		<label for= 'contraseña'>Contraseña:</label>
-		<input type= 'password' id="contraseña" placeholder="Escribe una contraseña" required class="textarea">
-		<label for= 'correo'>Correo:</label>
-		<input type='email' id='correo' placeholder= 'Escribe tu email' required class="textarea">
-		<label for= 'fecha'>Fecha de Nacimiento:</label>
-		<input type='date' id='fecha' required class="textarea">
-		<label for= 'telefono'>Teléfono:</label>
-		<input type='number' id='telefono' required class="textarea">
+		<input type='text' id="nombre" placeholder='Ingrese su nombre' name="nombre" required class="textarea">
+		<label for= "apellido">Apellido:</label>
+		<input type='text' id="apellido" placeholder='Ingrese su apellido' name="apellido" required class="textarea">
+		<label for= "contraseña">Contraseña:</label>
+		<input type= 'password' id="contraseña" min="8" placeholder="Ingrese su contraseña" name="contraseña" required class="textarea">
+		<label for= "correo">Correo:</label>
+		<input type='email' id="correo" placeholder= 'Ingrese su email' name="correo" required class="textarea">
+		<label for= "fecha">Fecha de Nacimiento:</label>
+		<input type='date' id="fecha" required name="fecha" class="textarea">
+		<label for= "telefono">Teléfono:</label>
+		<input type='number' id="telefono" name="telefono" required class="textarea">
 		<input type='submit' value='Enviar Datos' id='btnSubmit'>
-		<input type='reset' value="Limpiar" id="btnLimpiar">
+		<input type='reset' value="Limpiar Campos" id="btnLimpiar">
 		</form>
 	</div>
 </body>

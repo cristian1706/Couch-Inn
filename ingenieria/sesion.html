@@ -21,16 +21,21 @@
 				<li><a href="contacto.html">Contacto</a></li><li>
 				<li><a href="sesion.html">Iniciar Sesión</a></li>
 				<li><a href="registro.html">Registrarse</a></li>
+				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>
 	</div>
 	<div id="textoPr">
-		<form name="sesion" action="valida.php" method="POST">
-		Usuario: <input type="text" name="usuario" required class="textarea"><br>
-		Clave: <input type="text" name="clave" required class="textarea" ><br>
+		<form action="validaUsuario.php" method="POST">
+		<label for= 'correo'>Correo:</label> 
+		<input type="text" name="correo" required class="textarea"><br>
+		<label for= 'clave'>Contraseña:</label>
+		<input type="password" name="clave" required class="textarea" ><br>
+		<a href="recuperarClave.html">¿Olvidaste tu clave?</a><br>
 		<input type='submit' value='Aceptar' id='btnSubmit'>
 		<input type='reset' value="Limpiar" id="btnLimpiar">	
 		</form>
+
 	</div>
 </header>
 </body>

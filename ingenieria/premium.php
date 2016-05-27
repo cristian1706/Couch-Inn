@@ -27,7 +27,7 @@ if ($enlace->connect_errno) {
 	
 		<nav class="col-md-6 center-block quitar-float text-center">
 			<ul>
-				<li><a href="index.html">Inicio</a></li>
+				<li><a href="index.php">Inicio</a></li>
 				<li><a href="contacto.html">Contacto</a></li><li>
 				<li><a href="sesion.html">Iniciar Sesión</a></li>
 				<li><a href="registro.html">Registrarse</a></li>
@@ -35,7 +35,8 @@ if ($enlace->connect_errno) {
 		</nav>
 		<div id="textoPr">
 			<h2>Tarjetas válidas: Visa</h2>
-			<form  action="procesar.php">
+			<form  action="EsPremium.html" onSubmit="confirm('Confirmar tarjeta')">
+				
 				Ingrese número de tarjeta: <input type="number" maxlength="16" required class="textarea"><br>
 				<input type='submit' value='Enviar Datos' id='btnSubmit'>
 				<input type='reset' value="Limpiar" id="btnLimpiar">
