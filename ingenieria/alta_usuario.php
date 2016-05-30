@@ -1,4 +1,5 @@
 <?php 
+
 $enlace = mysqli_connect("localhost", "root", "", "couchinn");
 
 /* comprobar la conexión */
@@ -9,7 +10,7 @@ if ($enlace->connect_errno) {
 
 var_dump($_POST);
 $correo = $_POST['correo'];
-$c = "SELECT MAIL FROM usuario WHERE MAIL = '$correo'";
+$c = "SELECT correo FROM usuario WHERE correo = '$correo'";
 $valida = mysqli_query($enlace,$c) or die ("Error: ".mysqli_error($enlace)); 
 if($valida->num_rows > 0)
         {
@@ -39,21 +40,33 @@ else{
                 </script>';
 		}
 	}
-/*$nombre = $_POST['nombre'];
+    $telefono = $_POST['telefono'];        
+  $permitidos_telefono = "0123456789"; 
+  for ($i=0; $i<strlen($telefono); $i++){ 
+    if (strpos($permitidos_telefono, substr($telefono,$i,1))===false){ 
+        echo'<script type="text/javascript">
+                alert("¡Telefono invalido! Por favor ingrese un telefono solo con numeros");
+                window.location="registro.html"
+                </script>';
+    }
+  }
+$nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $fecha = $_POST['fecha'];
 $contraseña = $_POST['contraseña'];
-var_dump($nombre);*/
-
-	$sql = mysqli_query($enlace, "INSERT into usuario ('NOMBRE','APELLIDO','MAIL','TELEFONO','NACIMIENTO','CLAVE') VALUES ($_POST['nombre'], $_POST['apellido'], $_POST['correo'],$_POST['telefono'], $_POST['fecha'],$_POST['contraseña'])");
- 	
- 	if( $_query=mysqli_query($enlace,$sql)){
+var_dump($nombre);
+   echo "holaaaaaaaaaaaa";
+   $x = "INSERT INTO usuario (correo,nombre,apellido,telefono,nacimiento,clave) VALUES ('$correo','$nombre', '$apellido','$telefono', '$fecha','$contraseña')";
+   echo $x;
+	//$sql = mysqli_query($enlace, "INSERT into usuario (correo,nombre,apellido,telefono,nacimiento,clave,tipo) VALUES ($_POST['correo'], $_POST['nombre'], $_POST['apellido'],$_POST['telefono'], $_POST['fecha'],$_POST['clave']), $_POST['tipo']");
+ 	$sql=mysqli_query($enlace,$x);
+ 	/*if( $_query=mysqli_query($enlace,$sql)){
   	echo " Usuario agregado correctamente";
  	}
 
- 	else{ echo "no se pudo agregar el usuario";}
+ 	else{ echo "no se pudo agregar el usuario";}*/
 }
 
 ?>

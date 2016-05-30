@@ -22,16 +22,19 @@
 				<li><a href="sesion.html">Iniciar Sesión</a></li>
 				<li><a href="registro.html">Registrarse</a></li>
 				<li><a href="faq.html">FAQ</a></li>
+
 			</ul>
 		</nav>
 		<div id="textoPr">
 			
-			<form action="alta_tipo.php">
-			<input type="submit" value="Agregar Couch" id="BtnSubmit"><br>
-			<form name="premium" action="premium.php">
-			<input type="submit" value="Quiero ser Premium" id="BtnSubmit"><br>
+			<form action="alta_tipo.php" method="POST">
+			<label for="descripcion">Descripcion:</label>
+			<textarea name="descripcion" rows="3" cols="30" required class="textarea"></textarea><br>
+			<label for="estado">Estado:</label>
+			<input name="estado" placeholder="Activo o Inactivo" required class="textarea"><br>
+			<button type='submit' id='btnSubmit'>Agregar tipo</button>
+			
 		</div>
-		<a href="cerrar_sesion.php">Cerrar Sesion</a>
 	</div>
 </header>
 </body>
