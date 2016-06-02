@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,900' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<title>Couch Inn</title>
+</head>
+<body>
+<header>
+	<hgroup>
+	<div class="col-md-6 center-block quitar-float text-center">
+		<img src="logocouchinn.png" width="500" height="100">
+	</hgroup>
+	
+		<nav class="col-md-6 center-block quitar-float text-center">
+			<ul>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="">Perfil</a></li><li>
+				<li><a href="sesion.html">Iniciar Sesión</a></li>
+				<li><a href="registro.html">Registrarse</a></li>
+				<li><a href="faq.html">FAQ</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+	<div id="textoPr">
+		<form action="alta_couch.php" method="POST" onSubmit="confirm('Confirmar Couch')" enctype="multipart/form-data">
+		
+		<label for= 'titulo'>Título:</label>
+		<input type='text'  name="titulo" placeholder="Nombre de su couch" required class="textarea">
+		<label for= 'ubicacion'>Ubicación:</label>
+		<input type='text'  name="ubicacion" placeholder="Ciudad de su couch" required class="textarea">
+		<label for= 'descripcion'>Descripción:</label>
+		<input type= 'textarea' name="descripcion" placeholder="Breve descripcion" required class="textarea">
+		<label for= 'capacidad'>Capacidad:</label>
+		<input type='number' min="1" max="50" name="capacidad" required class="textarea"><br>		
+		<label for="foto">Agregar Foto:</label>
+		<input type="file" name="foto" id="btnSubmit">
+		<label for="tipo">Seleccionar tipo:</label>
+		<select name="tipo" class="textarea" required>
+			<option>Cama</option>
+			<option>Casa</option>
+		</select>
+		<input type='submit' value='Enviar Datos' id='btnLimpiar'>
+		<input type='reset' value="Limpiar" id="btnLimpiar">
+		</form>
+	</div>
+</body>
+</html>

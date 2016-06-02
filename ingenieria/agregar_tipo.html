@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,900' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<title>Couch Inn</title>
+</head>
+<body>
+<header>
+	<hgroup>
+	<div class="col-md-6 center-block quitar-float text-center">
+		<h1 class="Indie-flower grande verde">Couch Inn</h1>
+	</hgroup>
+	
+		<nav class="col-md-6 center-block quitar-float text-center">
+			<ul>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="contacto.html">Contacto</a></li><li>
+				<li><a href="sesion.html">Iniciar Sesión</a></li>
+				<li><a href="registro.html">Registrarse</a></li>
+				<li><a href="faq.html">FAQ</a></li>
+
+			</ul>
+		</nav>
+		<div id="textoPr">
+			
+			<form action="alta_tipo.php" method="POST">
+			<label for="descripcion">Descripcion:</label>
+			<textarea name="descripcion" rows="1" cols="20" required class="textarea"></textarea><br>
+			<label for="estado">Estado:</label>
+			<input name="estado" placeholder="Activo o Inactivo" required class="textarea"><br>
+			<button type='submit' id='btnSubmit'>Agregar tipo</button>
+			
+		</div>
+	</div>
+</header>
+</body>
+</html>
