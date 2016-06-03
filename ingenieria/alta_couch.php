@@ -7,30 +7,30 @@ if ($enlace->connect_errno) {
     exit();
 }
 $titulo = $_POST['titulo'];        
-	$permitidos_titulo = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
-	for ($i=0; $i<strlen($titulo); $i++){ 
-		if (strpos($permitidos_titulo, substr($titulo,$i,1))===false){ 
-    		echo'<script type="text/javascript">
+    $permitidos_titulo = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
+    for ($i=0; $i<strlen($titulo); $i++){ 
+        if (strpos($permitidos_titulo, substr($titulo,$i,1))===false){ 
+            echo'<script type="text/javascript">
                 alert("¡Titulo invalido! Por favor ingrese un titulo solo con letras");
                 window.location="agregar_couch.html"
                 </script>';
             }
         }
 $descripcion = $_POST['descripcion'];        
-	$permitidos_descripcion = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
-	for ($i=0; $i<strlen($descripcion); $i++){ 
-		if (strpos($permitidos_descripcion, substr($descripcion,$i,1))===false){ 
-    		echo'<script type="text/javascript">
+    $permitidos_descripcion = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
+    for ($i=0; $i<strlen($descripcion); $i++){ 
+        if (strpos($permitidos_descripcion, substr($descripcion,$i,1))===false){ 
+            echo'<script type="text/javascript">
                 alert("¡descripcion invalido! Por favor ingrese un descripcion solo con letras");
                 window.location="agregar_couch.html"
                 </script>';
             }
         }
 $ubicacion = $_POST['ubicacion'];        
-	$permitidos_ubicacion = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 "; 
-	for ($i=0; $i<strlen($ubicacion); $i++){ 
-		if (strpos($permitidos_ubicacion, substr($ubicacion,$i,1))===false){ 
-    		echo'<script type="text/javascript">
+    $permitidos_ubicacion = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 "; 
+    for ($i=0; $i<strlen($ubicacion); $i++){ 
+        if (strpos($permitidos_ubicacion, substr($ubicacion,$i,1))===false){ 
+            echo'<script type="text/javascript">
                 alert("¡ubicacion invalido! Por favor ingrese un ubicacion solo con letras");
                 window.location="agregar_couch.html"
                 </script>';

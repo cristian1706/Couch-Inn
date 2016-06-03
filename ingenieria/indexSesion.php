@@ -1,4 +1,4 @@
-﻿<?php 
+﻿<?php
 $enlace = mysqli_connect("localhost", "root", "", "couchinn");
 
 /* comprobar la conexión */
@@ -9,8 +9,8 @@ if ($enlace->connect_errno) {
 session_start();
 if(isset($_SESSION['nombre']) and $_SESSION['estado'] == 'Autenticado'){
 	echo ("Bienvenido ".$_SESSION['nombre'].' '.$_SESSION['apellido']);}
- ?>
- <!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -21,7 +21,7 @@ if(isset($_SESSION['nombre']) and $_SESSION['estado'] == 'Autenticado'){
 	<title>Couch Inn</title>
 </head>
 <body>
-	<div class="cerrar">
+<div class="cerrar">
 		<a href="modificarPerfil.php"> Modificar perfil</a><br>
 		<a href="cerrarSesion.php">Cerrar Sesion</a>
 	</div>
@@ -38,21 +38,45 @@ if(isset($_SESSION['nombre']) and $_SESSION['estado'] == 'Autenticado'){
 				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>
-		<div id="textoPr">
-			<h2>Tarjetas válidas: Visa</h2>
-			<h3>El precio de ser premium se paga una vez, el valor es $..</h3>
-			<form  action="EsPremium.php" method= "POST" onSubmit="confirm('Confirmar tarjeta')">
-				
-				<label for="num">Ingrese número de tarjeta:</label>
-			    <input type="text" maxlength="16" name="tarjeta" required class="textarea"><br>
-				<label for='fecha'>Fecha del dia de hoy:</label>
-				<input type="date" name="fecha" class="textarea" required><br>
-				<input type='submit' value='Enviar Datos' id='btnSubmit'>
-				<input type='reset' value="Limpiar" id="btnLimpiar">
-			</form>
-		</div>
+		<h1 style="font-size: 170%;">Couchs</h1>
 		
-	</div>
-</header>
-</body>
-</html>
+		<?php 
+		
+		$sql = "SELECT * FROM foto inner join couch on (couch.id_couch = foto.id_couch)
+		inner join usuario on (couch.id_couch_usuario = usuario.id_usuario)";
+		$resultado = mysqli_query($enlace,$sql);
+		while($rows=mysqli_fetch_array($resultado)){
+			
+			?>
+
+			<table class="table table-striped">
+				<thead style="font-weight: bold" class"center-block">
+					<tr>
+						<th>Foto</th>
+						<th>Título</th>
+						<th>Detalle</th>
+					</tr>
+				</thead>	
+				<td> <?php 
+					if ($rows['id_nro_inscripcion'] != NULL){
+						$imagen = $rows['imagen'];
+						echo "<img src='./uploads/$imagen' height='200px' width='200px'>";
+					}
+					
+					else {
+						echo "<img src='./uploads/logocouchinn.png' height='200px' width='200px'></td>"; }?> </td>
+						
+
+						<td style="font-weight: bold"> <?php echo $rows['titulo']; ?></td>
+						<td>
+							<form action="detalle_couch.php" method="POST">
+								<input type="hidden" name="secreto" value="<?php echo $rows['id_couch']?>">
+								<input type="submit" class="btn btn-default" value="Ver Couch" name="enviar">
+							</form>
+						</td>
+						
+						<?php } ?>	
+					</div>
+				</header>
+			</body>
+			</html>

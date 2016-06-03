@@ -12,13 +12,12 @@
 <header>
 	<hgroup>
 	<div class="col-md-6 center-block quitar-float text-center">
-		<img src="logocouchinn.png" width="500" height="100">
+		<img src="couchinn.png" width="500" height="100">
 	</hgroup>
 	
 		<nav class="col-md-6 center-block quitar-float text-center">
 			<ul>
 				<li><a href="index.php">Inicio</a></li>
-				<li><a href="contacto.html">Perfil</a></li><li>
 				<li><a href="sesion.html">Iniciar Sesión</a></li>
 				<li><a href="registro.html">Registrarse</a></li>
 				<li><a href="faq.html">FAQ</a></li>
@@ -27,6 +26,18 @@
 	</div>
 </header>
 	<div id="textoPr">
+
+		<!--<script language="Javascript"> 
+			function confirmar(){ 
+				confirmar=confirm("Confirmar sus datos"); 
+				if (confirmar) 
+					document.location.href='alta_usuario.php';
+				else 
+					// si pulsamos en cancelar
+					document.location.href= 'registro.html';
+			} -->
+</script>
+	
 		<form action="alta_usuario.php" method="POST" onSubmit="confirm('Confirme sus datos')">
 		
 		<label for= 'nombre'>Nombre:</label>
@@ -34,14 +45,14 @@
 		<label for= "apellido">Apellido:</label>
 		<input type='text' id="apellido" placeholder='Ingrese su apellido' name="apellido" required class="textarea">
 		<label for= "contraseña">Contraseña:</label>
-		<input type= 'password' id="contraseña" placeholder="Ingrese su contraseña" name="contraseña" required class="textarea">
+		<input type= 'password' id="contraseña" min="8" placeholder="Ingrese su contraseña" name="contraseña" required class="textarea">
 		<label for= "correo">Correo:</label>
-		<input type='email' id="correo" placeholder= 'example@example.com' name="correo" required class="textarea">
+		<input type='email' id="correo" placeholder= 'Ingrese su email' name="correo" required class="textarea">
 		<label for= "fecha">Fecha de Nacimiento:</label>
 		<input type='date' id="fecha" required name="fecha" class="textarea">
 		<label for= "telefono">Teléfono:</label>
-		<input type='text' id="telefono" name="telefono" required class="textarea">
-		<input type='submit' value='Enviar Datos' id='btnSubmit'>
+		<input type='number' id="telefono" name="telefono" required class="textarea">
+		<input type='submit' value='Enviar Datos'  id='btnSubmit'>
 		<input type='reset' value="Limpiar Campos" id="btnLimpiar">
 		</form>
 	</div>

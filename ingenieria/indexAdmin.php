@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $enlace = mysqli_connect("localhost", "root", "", "couchinn");
 
 /* comprobar la conexión */
@@ -6,8 +6,12 @@ if ($enlace->connect_errno) {
     printf("Falló la conexión: %s\n", $mysqli->connect_error);
     exit();
 }
-      //aca pude haber hecho la funcion isset preguntando por cual sesion esta activa (usuario o admin) e informar su nombre apellido (usuario) o correo (admin) en lugar de un indexSesion e indexAdmin por separado
+session_start();
+if(isset($_SESSION['correo']) and $_SESSION['estado'] == 'Autenticado'){
+	echo ("Bienvenido ".$_SESSION['correo']);}
+
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +23,10 @@ if ($enlace->connect_errno) {
 	<title>Couch Inn</title>
 </head>
 <body>
+	<div class="cerrar">
+		<a href="modificarPerfiladmin.php"> Modificar perfil</a><br>
+		<a href="cerrarSesion.php">Cerrar Sesion</a>
+	</div>
 <header>
 	<hgroup>
 	<div class="col-md-6 center-block quitar-float text-center">
@@ -27,13 +35,11 @@ if ($enlace->connect_errno) {
 	
 		<nav class="col-md-6 center-block quitar-float text-center">
 			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="sesion.html">Iniciar Sesión</a></li>
-				<li><a href="registro.html">Registrarse</a></li>
+				<li><a href="indexAdmin.php">Inicio</a></li>
+				<li><a href="perfilAdmin.php">Perfil</a></li>
 				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>
-		
 		<h1 style="font-size: 170%;">Couchs</h1>
 		
 		<?php 

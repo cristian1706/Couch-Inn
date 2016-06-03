@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 $enlace = mysqli_connect("localhost", "root", "", "couchinn");
 
 /* comprobar la conexión */
@@ -16,16 +16,15 @@ $r = mysqli_query($enlace,$valida) or die ("Error: ".mysqli_error($enlace));
 if ($r->num_rows == 0){
 $sql = "INSERT INTO tipo (descripcion, estado) VALUES ('$descripcion', '$estado')";
 $res=mysqli_query($enlace,$sql);
+echo'<script type="text/javascript">
+                alert("Tipo de couch agregado exitosamente!");
+                window.location="agregar_tipo.php"
+                </script>';
 }
 else {
 	echo'<script type="text/javascript">
                 alert("¡Tipo de couch existente! Por favor ingrese otro ");
-                window.location="agregar_tipo.html"
+                window.location="agregar_tipo.php"
                 </script>';
 }
-echo "tipo agregado";
  ?>
-
- 
-<a href="index.php">Inicio</a>
-<a href="agregar_couch.html">Intentar de nuevo</a>

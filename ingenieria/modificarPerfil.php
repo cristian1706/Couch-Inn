@@ -1,16 +1,17 @@
-﻿<?php 
-$enlace = mysqli_connect("localhost", "root", "", "couchinn");
+﻿<?php
+	$enlace = mysqli_connect("localhost", "root", "", "couchinn");
 
 /* comprobar la conexión */
 if ($enlace->connect_errno) {
     printf("Falló la conexión: %s\n", $mysqli->connect_error);
     exit();
 }
-session_start();
+	session_start();
 if(isset($_SESSION['nombre']) and $_SESSION['estado'] == 'Autenticado'){
 	echo ("Bienvenido ".$_SESSION['nombre'].' '.$_SESSION['apellido']);}
- ?>
- <!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -21,10 +22,8 @@ if(isset($_SESSION['nombre']) and $_SESSION['estado'] == 'Autenticado'){
 	<title>Couch Inn</title>
 </head>
 <body>
-	<div class="cerrar">
-		<a href="modificarPerfil.php"> Modificar perfil</a><br>
-		<a href="cerrarSesion.php">Cerrar Sesion</a>
-	</div>
+<br>
+<a href="cerrarSesion.php">Cerrar Sesion</a>
 <header>
 	<hgroup>
 	<div class="col-md-6 center-block quitar-float text-center">
@@ -38,21 +37,14 @@ if(isset($_SESSION['nombre']) and $_SESSION['estado'] == 'Autenticado'){
 				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>
-		<div id="textoPr">
-			<h2>Tarjetas válidas: Visa</h2>
-			<h3>El precio de ser premium se paga una vez, el valor es $..</h3>
-			<form  action="EsPremium.php" method= "POST" onSubmit="confirm('Confirmar tarjeta')">
-				
-				<label for="num">Ingrese número de tarjeta:</label>
-			    <input type="text" maxlength="16" name="tarjeta" required class="textarea"><br>
-				<label for='fecha'>Fecha del dia de hoy:</label>
-				<input type="date" name="fecha" class="textarea" required><br>
-				<input type='submit' value='Enviar Datos' id='btnSubmit'>
-				<input type='reset' value="Limpiar" id="btnLimpiar">
-			</form>
-		</div>
-		
 	</div>
 </header>
-</body>
-</html>
+	<div id="textoPr">
+
+<form action="modificarPerfil_carga.php" method="post">
+ 	<p><label for="correo">Introduzca su mail nuevamente: </label><input type="email" name="correo" required class="textarea"></input></p>
+
+ 	<p><input type="submit" id="btnSubmit2"></input></p>
+ </form>
+ </body>
+ </html>

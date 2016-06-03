@@ -1,12 +1,16 @@
 ﻿<?php
-$enlace = mysqli_connect("localhost", "root", "", "couchinn");
+	$enlace = mysqli_connect("localhost", "root", "", "couchinn");
 
 /* comprobar la conexión */
 if ($enlace->connect_errno) {
     printf("Falló la conexión: %s\n", $mysqli->connect_error);
     exit();
 }
+	session_start();
+if(isset($_SESSION['correo']) and $_SESSION['estado'] == 'Autenticado'){
+	echo ("Bienvenido ".$_SESSION['correo']);}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,40 +22,31 @@ if ($enlace->connect_errno) {
 	<title>Couch Inn</title>
 </head>
 <body>
+	<div class="cerrar">
+		<a href="cerrarSesion.php">Cerrar Sesion</a>
+	</div>
+
 <header>
 	<hgroup>
 	<div class="col-md-6 center-block quitar-float text-center">
-		<img src="logocouchinn.png" width="500" height="100">
+		<img src="couchinn.png" width="500" height="100">
 	</hgroup>
 	
 		<nav class="col-md-6 center-block quitar-float text-center">
 			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="">Perfil</a></li><li>
-				<li><a href="sesion.html">Iniciar Sesión</a></li>
-				<li><a href="registro.html">Registrarse</a></li>
+				<li><a href="indexAdmin.php">Inicio</a></li>
+				<li><a href="perfilAdmin.php">Perfil</a></li>
 				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>
 	</div>
 </header>
 	<div id="textoPr">
-		
-	<?php
-			$query = "SELECT * FROM tipo";
-			$q = mysqli_query($enlace,$query);
-			while($rows = mysqli_fetch_array($q)){ ?>
 
-				<h4 style="font-size: bold 170%;">Nombre: <?php echo $rows['descripcion']; ?></h4>
-				<form action="modificar_tipo.php" method="POST">
-				<!--<input type="submit" value="modificar" id="btnSubmit"> -->
+<form action="modificarPerfiladmin_carga.php" method="post">
+ 	<p><label for="correo">Introduzca su mail nuevamente: </label><input type="email" name="correo" required class="textarea"></input></p>
 
-		<?php	}
-
-
-
-	?>
-
-	</div>
-</body>
-</html>
+ 	<p><input type="submit" id="btnSubmit2"></input></p>
+ </form>
+ </body>
+ </html>

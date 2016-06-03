@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -12,13 +12,12 @@
 <header>
 	<hgroup>
 	<div class="col-md-6 center-block quitar-float text-center">
-		<img src="logocouchinn.png" width="500" height="100">
+		<img src="couchinn.png" width="500" height="100">
 	</hgroup>
 	
 		<nav class="col-md-6 center-block quitar-float text-center">
 			<ul>
 				<li><a href="index.php">Inicio</a></li>
-				<li><a href="contacto.html">Contacto</a></li><li>
 				<li><a href="sesion.html">Iniciar Sesión</a></li>
 				<li><a href="registro.html">Registrarse</a></li>
 				<li><a href="faq.html">FAQ</a></li>
@@ -26,9 +25,9 @@
 		</nav>
 	</div>
 	<div id="textoPr">
-		<form action="validaUsuario.php" method="POST">
+		<form action="validaUsuarioAdmin.php" method="POST">
 		<label for= 'correo'>Correo:</label> 
-		<input type="text" name="correo" required class="textarea"><br>
+		<input type="email" name="correo" required class="textarea"><br>
 		<label for= 'clave'>Contraseña:</label>
 		<input type="password" name="clave" required class="textarea" ><br>
 		<a href="recuperarClave.html">¿Olvidaste tu clave?</a><br>

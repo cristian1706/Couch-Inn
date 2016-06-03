@@ -26,9 +26,8 @@ if ($enlace->connect_errno) {
 	
 		<nav class="col-md-6 center-block quitar-float text-center">
 			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="sesion.html">Iniciar Sesión</a></li>
-				<li><a href="registro.html">Registrarse</a></li>
+				<li><a href="indexSesion.php">Inicio</a></li>
+				<li><a href="perfil.php">Perfil</a></li><li>
 				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>

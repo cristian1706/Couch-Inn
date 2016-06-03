@@ -1,24 +1,33 @@
 <?php
-$enlace = mysqli_connect("localhost", "root", "", "couchinn");
+	$enlace = mysqli_connect("localhost", "root", "", "couchinn");
 
 /* comprobar la conexión */
 if ($enlace->connect_errno) {
     printf("Falló la conexión: %s\n", $mysqli->connect_error);
     exit();
 }
-      //aca pude haber hecho la funcion isset preguntando por cual sesion esta activa (usuario o admin) e informar su nombre apellido (usuario) o correo (admin) en lugar de un indexSesion e indexAdmin por separado
+session_start();
+if(isset($_SESSION['correo']) and $_SESSION['estado'] == 'Autenticado'){
+	echo ("Bienvenido ".$_SESSION['correo']);}
 ?>
-<!DOCTYPE html>
+
 <html>
 <head>
-	<meta charset="utf-8">
+	<title>Perfil</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,900' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-	<title>Couch Inn</title>
+	<style>
+		
+	</style>
 </head>
 <body>
+	<div class="cerrar">
+		<a href="modificarPerfiladmin.php"> Modificar perfil</a><br>
+		<a href="cerrarSesion.php">Cerrar Sesion</a>
+	</div>
+
 <header>
 	<hgroup>
 	<div class="col-md-6 center-block quitar-float text-center">
@@ -27,13 +36,13 @@ if ($enlace->connect_errno) {
 	
 		<nav class="col-md-6 center-block quitar-float text-center">
 			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="sesion.html">Iniciar Sesión</a></li>
-				<li><a href="registro.html">Registrarse</a></li>
+				<li><a href="indexAdmin.php">Inicio</a></li>
+				<li><a href="agregar_tipo.php">Agregar tipo de couch</a></li>
+				<li><a href="tipos_de_couch.php">Ver tipos de couch</a></li>
+				<li><a href="""eliminar_tipo.php">Eliminar tipo de couch</li>
 				<li><a href="faq.html">FAQ</a></li>
 			</ul>
 		</nav>
-		
 		<h1 style="font-size: 170%;">Couchs</h1>
 		
 		<?php 
@@ -65,7 +74,7 @@ if ($enlace->connect_errno) {
 
 						<td style="font-weight: bold"> <?php echo $rows['titulo']; ?></td>
 						<td>
-							<form action="detalle_couch.php" method="POST">
+							<form action="detalle_couch_admin.php" method="POST">
 								<input type="hidden" name="secreto" value="<?php echo $rows['id_couch']?>">
 								<input type="submit" class="btn btn-default" value="Ver Couch" name="enviar">
 							</form>

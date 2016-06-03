@@ -1,11 +1,12 @@
 body{
 	font-family: 'Lato', sans-serif;
 }
+
 #textoPr
 {
 	width: 700px;
 	height: 400px;
-	background-color: #86b300;
+	background-color:  #86b300;
 	color:#FFF;
 	margin:0 auto;
 	text-align: left;
@@ -21,6 +22,20 @@ body{
 	cursor: pointer;
 	font-family: 'Russo One', sans-serif;
 }
+
+#btnSubmit2{
+	color:#1d1d1d;
+
+	margin: 10px;
+	cursor: pointer;
+	font-family: 'Russo One', sans-serif;
+}
+
+#btnSubmit3{
+	color:#1d1d1d;
+	cursor: pointer;
+	font-family: 'Russo One', sans-serif;
+}
 #btnLimpiar
 {
 	color:#1d1d1d;
@@ -31,9 +46,6 @@ body{
 }
 .textarea{
 	color: #1d1d1d;
-}
-#grupo{
-	display: inline;
 }
 nav ul li
 {
@@ -91,4 +103,8 @@ a{
 .inline-block{
 	float: none;
 	display: inline-block;
+}
+.cerrar{
+	text-align:left;
+	
 }

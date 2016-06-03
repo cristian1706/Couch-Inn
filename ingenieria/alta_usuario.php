@@ -20,26 +20,26 @@ if($valida->num_rows > 0)
                 </script>';
         }
 else{
-	$contraseña = $_POST['contraseña'];        
-	$permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; 
-	for ($i=0; $i<strlen($contraseña); $i++){ 
-		if (strpos($permitidos, substr($contraseña,$i,1))===false){ 
-   	 	echo'<script type="text/javascript">
-     	        alert("¡Clave invalida! Por favor ingrese una clave utilizando unicamente letras y numeros.");
+  $contraseña = $_POST['contraseña'];        
+  $permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; 
+  for ($i=0; $i<strlen($contraseña); $i++){ 
+    if (strpos($permitidos, substr($contraseña,$i,1))===false){ 
+      echo'<script type="text/javascript">
+              alert("¡Clave invalida! Por favor ingrese una clave utilizando unicamente letras y numeros.");
                 window.location="registro.html"
                 </script>';
- 		}
-	}
- 	$nombre = $_POST['nombre'];        
-	$permitidos_nombre = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
-	for ($i=0; $i<strlen($nombre); $i++){ 
-		if (strpos($permitidos_nombre, substr($nombre,$i,1))===false){ 
-    		echo'<script type="text/javascript">
+    }
+  }
+  $nombre = $_POST['nombre'];        
+  $permitidos_nombre = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
+  for ($i=0; $i<strlen($nombre); $i++){ 
+    if (strpos($permitidos_nombre, substr($nombre,$i,1))===false){ 
+        echo'<script type="text/javascript">
                 alert("¡Nombre invalido! Por favor ingrese un nombre solo con letras");
                 window.location="registro.html"
                 </script>';
-		}
-	}
+    }
+  }
     $telefono = $_POST['telefono'];        
   $permitidos_telefono = "0123456789"; 
   for ($i=0; $i<strlen($telefono); $i++){ 
@@ -59,17 +59,17 @@ $contraseña = $_POST['contraseña'];
 
    $x = "INSERT INTO usuario (correo,nombre,apellido,telefono,nacimiento,clave) VALUES ('$correo','$nombre', '$apellido','$telefono', '$fecha','$contraseña')";
 
-//$sql=mysqli_query($enlace,$x) or die ("Error: ".mysqli_error($enlace);
- 	if( $_query=mysqli_query($enlace,$x)){
-  	echo'<script type="text/javascript">
-                alert("Usuario agregado correctamente, ahora puedes iniciar sesion con tu correo y contraseña");
-                window.location="sesion.html"
-                </script>';
- 	}
-
- 	else{   echo'<script type="text/javascript">
+  $sql=mysqli_query($enlace,$x);
+  if( $_query=mysqli_query($enlace,$sql)){
+    echo'<script type="text/javascript">
                 alert("Hubo un error al registrarlo, por favor intente nuevamente");
                 window.location="registro.html"
+                </script>';
+  }
+
+  else{ echo'<script type="text/javascript">
+                alert("Usuario registrado correctamente!");
+                window.location="sesion.html"
                 </script>';}
 }
 
